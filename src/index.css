@@ -1,0 +1,144 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
+
+    --card: 0 0% 85%;
+    --card-foreground: 0 0% 0%;
+
+    --popover: 0 0% 85%;
+    --popover-foreground: 0 0% 0%;
+
+    --primary: 330 100% 71%;
+    --primary-foreground: 0 0% 0%;
+
+    --secondary: 0 0% 85%;
+    --secondary-foreground: 0 0% 0%;
+
+    --muted: 0 0% 70%;
+    --muted-foreground: 0 0% 30%;
+
+    --accent: 60 100% 50%;
+    --accent-foreground: 0 0% 0%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 330 100% 71%;
+
+    --radius: 0;
+
+    --sonic-pink: 330 100% 71%;
+    --sonic-black: 0 0% 0%;
+    --sonic-yellow: 60 100% 50%;
+    --win95-gray: 0 0% 85%;
+    --win95-dark-gray: 0 0% 70%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'ms_sans_serif', 'MS Sans Serif', sans-serif;
+    overflow: hidden;
+  }
+}
+
+@font-face {
+  font-family: 'ms_sans_serif';
+  src: url('/fonts/ms_sans_serif.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@import './styles/analytics.css';
+
+@layer components {
+  .win95-window {
+    @apply bg-[#c0c0c0] border-[3px] border-solid;
+    border-color: #ffffff #808080 #808080 #ffffff;
+    box-shadow: inset -1px -1px 0 #000000, inset 1px 1px 0 #ffffff;
+  }
+
+  .win95-button {
+    @apply bg-[#c0c0c0] border-[2px] border-solid px-3 py-1 text-black font-bold active:translate-y-[1px];
+    border-color: #ffffff #808080 #808080 #ffffff;
+    box-shadow: inset -1px -1px 0 #000000, inset 1px 1px 0 #ffffff;
+  }
+
+  .border-inset {
+    border-color: #808080 #ffffff #ffffff #808080 !important;
+    box-shadow: inset 1px 1px 0 #000000, inset -1px -1px 0 #ffffff !important;
+    transform: translateY(0) !important;
+  }
+
+  .win95-panel {
+    @apply bg-[#c0c0c0] border-[2px] border-solid p-1;
+    border-color: #808080 #ffffff #ffffff #808080;
+    box-shadow: inset -1px -1px 0 #ffffff, inset 1px 1px 0 #000000;
+  }
+
+  .win95-title-bar {
+    @apply bg-[#000080] text-white font-bold px-2 py-1 flex justify-between items-center;
+  }
+
+  .win95-inset {
+    @apply bg-white border-[2px] border-solid;
+    border-color: #808080 #ffffff #ffffff #808080;
+    box-shadow: inset 1px 1px 0 #000000, inset -1px -1px 0 #ffffff;
+  }
+
+  /* Game-specific styles */
+  .game-container {
+    @apply flex flex-col w-full h-full overflow-hidden;
+  }
+
+  .game-canvas {
+    @apply w-full h-full bg-black border-2 border-solid;
+    border-color: #808080 #ffffff #ffffff #808080;
+  }
+
+  /* Sonic theme overrides */
+  .sonic-pink {
+    @apply bg-[#FF69B4] text-black;
+  }
+
+  .sonic-black {
+    @apply bg-black text-white;
+  }
+
+  .sonic-yellow {
+    @apply bg-[#FFFF00] text-black;
+  }
+
+  .sonic-btn {
+    @apply bg-[#FF69B4] text-black border-[2px] border-solid px-3 py-1 font-bold hover:bg-[#FFFF00] transition-colors;
+    border-color: #ffffff #808080 #808080 #ffffff;
+    box-shadow: inset -1px -1px 0 #000000, inset 1px 1px 0 #ffffff;
+  }
+
+  /* Animations */
+  .animate-float {
+    animation: float 2s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+  }
+
+  .pixel-art {
+    image-rendering: pixelated;
+  }
+}
